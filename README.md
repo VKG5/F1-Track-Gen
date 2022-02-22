@@ -20,4 +20,10 @@ As displayed in _Fig 2._ we have a very simple UI that even unexperienced people
     - **Generate :** The button which makes the magic happen! The track is generated based on the inputs from API Type, Track Type and Sectors
     - **Generate Fillers :** This will distribute randomly, instances of the Flag(s) and Poles around the track, independent of Track length
     
-- [x] #739
+2. **Modular Assets:** 
+The assets used are completely modular and easily replacable, you can create your own custom assets in the [Base.blend](https://github.com/VKG5/F1-Track-Gen/blob/main/Base.blend) file under the relevant collections.
+
+<!-- Adding an image -->
+<p align="center">
+    ![Interface Image](https://github.com/VKG5/F1-Track-Gen/tree/main/Images/interface.png" width="512" title="hover text"> 
+</p>
