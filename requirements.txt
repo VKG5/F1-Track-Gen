@@ -1,0 +1,16 @@
+Requirements - Blender 2.93 or greater
+
+Yup, that's it, everything has been done locally within Blender :)
+
+There are only a few steps to get upto speed with this project!
+
+1. Open the "detailedTrack.blend", you will land on a blender interface populated with a track. 
+
+2. Navigate to the "script" workspace which will be the 4th workspace in the top menu bar. 
+
+3. After that select the basicUI.py file in the text editor if not already open and click on Run (The little play button alongside). This will give you the UI panel in the 3D Viewport. 
+(Yes we are planning to make this into a fully shipped add-on, so don't worry!)
+
+4. Just switch back to the Layout workspace after this and you're good to go!
+
+For more info - https://github.com/VKG5/F1-Track-Gen/
