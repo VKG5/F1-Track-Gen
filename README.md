@@ -3,27 +3,79 @@ We’ve created a blender add-on that allows anyone to generate an F1 circuit wi
 
 <!-- Adding an image -->
 <p align="center">
-    <img src="https://yt3.ggpht.com/ytc/AKedOLSvLgntU68OOYUb-DPPQ48Bdh_tTDbhPBvXzXbc=s900-c-k-c0x00ffffff-no-rj" width="512" title="hover text"> 
+    <img src="/Images/car.png" width="1920" title="hover text"> 
 </p>
 
 ## Current Features :
 1. **Simple UI:**
 As displayed in _Fig 2._ we have a very simple UI that even unexperienced people should be able to use easily. There are quite a few parameters :
-    - **Sectors :** The datasets we have used so far have 3 sectors per track (Sector 1 - Start, Sector 2 - Mid, Sector 3 - End)
-    - **API Type :** We have linked 3 APIs to get data from (Melbourne, Texas and Sakhir)
-    - **Track Type :** This is solely to show the scalability and verstility of the solution, you can swap the track for any track of you liking!
-    - **Pole Distance :** Distance b/w consecutive poles
-    - **Flag Distance :** Distance b/w consecutive flag(s) (5 country flags included as of the moment : Australia, Canada, India, United Kingdom, USA)
-    - **Pole Offset :** The distance of the pole from the center of the track
-    - **Flag Offset :** The distance of the flag(s) from the center of the track
-    - **[x] Delete Prev Fillers :** This is to clean up the previously present Fillers (Flags and Poles) before generating new ones [Recommended to keep checked]
-    - **Generate :** The button which makes the magic happen! The track is generated based on the inputs from API Type, Track Type and Sectors
-    - **Generate Fillers :** This will distribute randomly, instances of the Flag(s) and Poles around the track, independent of Track length
-    
-2. **Modular Assets:** 
-The assets used are completely modular and easily replacable, you can create your own custom assets in the [Base.blend](https://github.com/VKG5/F1-Track-Gen/blob/main/Base.blend) file under the relevant collections.
+    - **Sectors :** The datasets we have used so far have 3 sectors per track (Sector 1 - Start, Sector 2 - Mid, Sector 3 - End).
+    - **API Type :** We have linked 3 APIs to get data from (Melbourne, Texas and Sakhir).
+    - **Track Type :** This is solely to show the scalability and verstility of the solution, you can swap the track for any track of you liking!.
+    - **Pole Distance :** Distance b/w consecutive poles.
+    - **Flag Distance :** Distance b/w consecutive flag(s) (5 country flags included as of the moment (Australia, Canada, India, United Kingdom, USA).
+    - **Pole Offset :** The distance of the pole from the center of the track.
+    - **Flag Offset :** The distance of the flag(s) from the center of the track.
+    - **[x] Delete Prev Fillers :** This is to clean up the previously present Fillers (Flags and Poles) before generating new ones. [Recommended to keep checked]
+    - **Generate :** The button which makes the magic happen! The track is generated based on the inputs from API Type, Track Type and Sectors.
+    - **Generate Fillers :** This will distribute randomly, instances of the Flag(s) and Poles around the track, independent of Track length.
 
+<br> 
 <!-- Adding an image -->
 <p align="center">
-    ![Interface Image](https://github.com/VKG5/F1-Track-Gen/tree/main/Images/interface.png" width="512" title="hover text"> 
+   <img src="/Images/interface.png" width="512" title="hover text"> 
 </p>
+<br>
+
+2. **Modular Assets:** 
+The assets used are completely modular and easily replacable, you can create your own custom assets in the [Base.blend](Base.blend) file under the relevant collections.
+
+<br> 
+<!-- Adding an image -->
+<p align="center">
+   <img src="/Images/collections.png" width="512" title="hover text"> 
+</p>
+<br>
+
+So suppose you are making another Flag model, place it undr the "Flag" collection and so on. Leaving the fillers, the tracks also follow this approach, hence, making them easy to modify! **(Naming conventions for Pole (Pole) and TrackCollection (Track001, Track002) are necessary)**
+
+- [ ] TODO : Dynamic object/asset registration
+
+3. **Procedural Materials:**
+This is one field I specialize in! What could be better than skipping the whole part where you have to go through the painstaking process of unwrapping a model and texture it. We've made it easy for you by including procedural materials! Infinite fidelity and no hassles, easily modifiable too, you can access the panel(s) from the material properties panel in the bottom right represented by the _sphere icon_.
+
+<br> 
+<!-- Adding an image -->
+<p align="center">
+   <img src="/Images/materials.png" width="512" title="hover text"> 
+</p>
+<br>
+
+You can view various sliders in here :
+- **Yellow Distance :** How far away the yellow lines (at the edges) are from each other.
+- **Yellow Thicc :** Exactly what the name suggests, how _thicc_ the yellow lines are.
+- **Inner Distance :** How far away the center of the road will the separator(s) be.
+- **Inner Thicc :** Exactly what the name suggests, how _thicc_ the inner separator lines are.
+- **Yellow Color :** The color of the "yellow" (edge) lines.
+- **Inner Color :** The color of the center separator line(s).
+
+- [ ] TODO : Make the material properties more easily accessible! Maybe in the UI itself :)
+
+4. **Heavily Commented Code:**
+Afraid of reading through chunks of code to understand what's going on? Don't worry, we have taken extra care in commenting out almost every single line along with generic syntax for functions that are specific to [**Blender Python API (bpy)**](https://docs.blender.org/api/current/index.html). But on the rare occasion that you are still unable to understand the code, just feel free to ping me or Nazzal and we'll be more than happy to help you!
+
+<br> 
+<!-- Adding an image -->
+<p align="center">
+   <img src="/Images/code.png" width="512" title="hover text"> 
+</p>
+<br>
+
+- [x] TODO : Maintain the standard of the code :D
+- [ ] TODO : Generate a proper shippable add-on (So that it makes everyone's lives easier)
+
+## How to run this?
+It's pretty simple, open the [detailedTrack.blend](detailedTrack.blend) you will land on an interface like below. Navigate to the "script" workspace which will be the 2nd workspace in the top menu bar. After that select the **basicUI.py** file in the text editor if not alreadt open and click on Run _(The little play button alongside)_ 
+
+## Results
+I can keep on talking about what we have done and get all technical but that's probably not what you're reading this for
