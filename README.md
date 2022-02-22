@@ -75,7 +75,42 @@ Afraid of reading through chunks of code to understand what's going on? Don't wo
 - [ ] TODO : Generate a proper shippable add-on (So that it makes everyone's lives easier)
 
 ## How to run this?
-It's pretty simple, open the [detailedTrack.blend](detailedTrack.blend) you will land on an interface like below. Navigate to the "script" workspace which will be the 2nd workspace in the top menu bar. After that select the **basicUI.py** file in the text editor if not alreadt open and click on Run _(The little play button alongside)_ 
+It's pretty simple, open the [detailedTrack.blend](detailedTrack.blend) you will land on an interface like below. Navigate to the "script" workspace which will be the 2nd workspace in the top menu bar. After that select the **basicUI.py** file in the text editor if not alreadt open and click on Run _(The little play button alongside)_. This will give you the UI panel in the 3D Viewport. _**Yes we are planning to make this into a fully shipped add-on, so don't worry!**_ 
+
+<br> 
+<!-- Adding an image -->
+<p align="center">
+   <img src="/Images/menuBar.png" width="512" title="hover text"> 
+    <img src="/Images/runScript.png" width="512" title="hover text"> 
+</p>
+<br>
+
+Just switch back to the Layout workspace after this and you're good to go! You can find the details about the functionality in the above [section](https://github.com/VKG5/F1-Track-Gen/edit/main/README.md#current-features-).
 
 ## Results
-I can keep on talking about what we have done and get all technical but that's probably not what you're reading this for
+I can keep on talking about what we have done and get all technical but that's probably not what you're reading this for, so I have attached a few images below for your reference, that this is the kind of result you can expect out of the current add-on.
+- [x] Optimized Geometry
+- [x] Procedural Texture
+- [x] Modular
+- [x] Easily modifiable
+
+<br> 
+<!-- Adding an image -->
+<p align="center">
+    <img src="/Images/melbourne .png" width="512" title="hover text"> 
+    <img src="/Images/texas.png" width="512" title="hover text"> 
+    <img src="/Images/sakhir.png" width="512" title="hover text">
+</p>
+<br>
+
+That's what we have for now! But we will surely keep on updating this in the future for better results!
+
+## Journey
+This started off as a simple Hackathon project for [Hackmakers Formula AI Hack 2022](https://www.hackmakers.com/) but turned out to be too fun, made a lot of new connections, had a lot of fun and sleepless night (Imagine, overworking even in online mode), but that was one of the things about this, the adrenaline inducing ideas, the brainstorming sessions, seeing the output of your efforts take shape (Literally, we are talking about 3D afterall!) 
+
+We'll be updating this repo in the future with better performance, better textures and an overall better product!
+
+## License
+Use it however you want to! Just be sure to credit us for our work :D That's all we ask as we are contributing this project the Blender's Open Source Community :heartpulse:
+
+- [x] Be sure to credit the devs for their efforts in whatever repo you use!
