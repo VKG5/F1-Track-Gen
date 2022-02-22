@@ -75,7 +75,12 @@ Afraid of reading through chunks of code to understand what's going on? Don't wo
 - [ ] TODO : Generate a proper shippable add-on (So that it makes everyone's lives easier)
 
 ## How to run this?
-It's pretty simple, open the [detailedTrack.blend](detailedTrack.blend) you will land on an interface like below. Navigate to the "script" workspace which will be the 2nd workspace in the top menu bar. After that select the **basicUI.py** file in the text editor if not alreadt open and click on Run _(The little play button alongside)_. This will give you the UI panel in the 3D Viewport. _**Yes we are planning to make this into a fully shipped add-on, so don't worry!**_ 
+
+**Requirements : [Blender 2.93.0](https://www.blender.org/) or greater**
+
+Yup, that's the only requirement! We have designed and textured everything locally within Blender (Except for the grass and car [Taken from Sketchfab](https://skfb.ly/o8wn7)).
+
+It's pretty simple, open the [detailedTrack.blend](detailedTrack.blend) you will land on an interface like below. Navigate to the "script" workspace which will be the 4th workspace in the top menu bar. After that select the **basicUI.py** file in the text editor if not already open and click on Run _(The little play button alongside)_. This will give you the UI panel in the 3D Viewport. _**Yes we are planning to make this into a fully shipped add-on, so don't worry!**_ 
 
 <br> 
 <!-- Adding an image -->
