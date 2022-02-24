@@ -1,0 +1,12 @@
+************************ VERSION 1.0.0 ************************
+Just getting started, currently implemented using Python
+
+1. Basic UI
+2. Basic Algo
+3. Procedural Textures
+4. Procedural Roads
+
+Bugs :
+1. Fix the weird bug with 1 vertex at the center of the scene on generating Sector 1 or 2
+
+**Planning to shift everything to Geometry Nodes for better results!
