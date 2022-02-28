@@ -8,5 +8,24 @@ Just getting started, currently implemented using Python
 
 Bugs :
 1. Fix the weird bug with 1 vertex at the center of the scene on generating Sector 1 or 2
+2. Make a proper add-on that can be shipped
 
 **Planning to shift everything to Geometry Nodes for better results!
+
+
+X=============================XX==============================X
+
+
+************************ VERSION 1.1.0 ************************
+Proper add-on format, just download a zip file and install much like any Blender add-on
+
+1. Add-on installation guide : https://docs.blender.org/manual/en/latest/editors/preferences/addons.html
+
+Bugs :
+1. Fix the weird bug with 1 vertex at the center of the scene on generating Sector 1 or 2
+
+**Planning to shift everything to Geometry Nodes for better results!
+
+
+X=============================XX==============================X
+

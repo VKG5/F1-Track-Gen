@@ -1,3 +1,5 @@
+************************ VERSION 1.0.0 ************************
+
 Requirements - Blender 2.93 or greater
 
 Yup, that's it, everything has been done locally within Blender :)
@@ -14,3 +16,27 @@ There are only a few steps to get upto speed with this project!
 4. Just switch back to the Layout workspace after this and you're good to go!
 
 For more info - https://github.com/VKG5/F1-Track-Gen/
+
+
+X=============================XX==============================X
+
+
+************************ VERSION 1.1.0 ************************
+
+Requirements - Blender 2.93 or greater
+
+Yup, that's it, everything has been done locally within Blender :)
+
+This finally ships as a proper add-on now!
+
+1. Download the ZIP file
+
+2. Go to Blender > Edit > Preferences > Add-on (Install) > Select .zip file > Turn it on
+
+3. Under Misc > F1 Track Generator (UI Panel) you will find all the functionality it has to offer
+
+For more info - https://github.com/VKG5/F1-Track-Gen/
+
+
+X=============================XX==============================X
+
