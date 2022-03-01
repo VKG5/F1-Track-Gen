@@ -131,6 +131,6 @@ dmypy.json
 # Ignore the render folder and related files
 Dev/renderTrack.blend
 Dev/Render/
-Dev/Models/
 Dev/Textures/pngegg.png
 Dev/Textures/What-To-Wear-To-An-F1-Race-00.jpg
+Dev/Models/
