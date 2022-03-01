@@ -72,7 +72,7 @@ Afraid of reading through chunks of code to understand what's going on? Don't wo
 <br>
 
 - [x] TODO : Maintain the standard of the code :D
-- [ ] TODO : Generate a proper shippable add-on (So that it makes everyone's lives easier)
+- [x] TODO : Generate a proper shippable add-on (So that it makes everyone's lives easier)!! **_( DONE :D )_**
 
 ## How to run this?
 
