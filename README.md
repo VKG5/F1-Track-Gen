@@ -78,7 +78,7 @@ Afraid of reading through chunks of code to understand what's going on? Don't wo
 
 **Requirements : [Blender 2.93.0](https://www.blender.org/) or greater**
 
-Yup, that's the only requirement! We have designed and textured everything locally within Blender (Except for the grass and car [Taken from Sketchfab](https://skfb.ly/o8wn7)). {The car was meant for rendering purposes and was not included in this repo}.
+Yup, that's the only requirement! We have designed and textured everything locally within Blender (Except for the grass and car [Taken from Sketchfab](https://skfb.ly/o8wn7)).
 
 - [x] (_**Yes we are planning to make this into a fully shipped add-on, so don't worry!**_) It's here! Just get the [latest release](https://github.com/VKG5/F1-Track-Gen/releases/tag/v1.1.0) and install it like any other Blender add-on!
 - How to install a Blender add-on? What's better than the Blender documentary to [learn](https://docs.blender.org/manual/en/latest/editors/preferences/addons.html) this! 
