@@ -78,17 +78,20 @@ Afraid of reading through chunks of code to understand what's going on? Don't wo
 
 **Requirements : [Blender 2.93.0](https://www.blender.org/) or greater**
 
-Yup, that's the only requirement! We have designed and textured everything locally within Blender (Except for the grass and car [Taken from Sketchfab](https://skfb.ly/o8wn7)).
+Yup, that's the only requirement! We have designed and textured everything locally within Blender (Except for the grass and car [Taken from Sketchfab](https://skfb.ly/o8wn7)). {The car was meant for rendering purposes and was not included in this repo}.
 
-It's pretty simple, open the [detailedTrack.blend](detailedTrack.blend) you will land on an interface like below. Navigate to the "script" workspace which will be the 4th workspace in the top menu bar. After that select the **basicUI.py** file in the text editor if not already open and click on Run _(The little play button alongside)_. This will give you the UI panel in the 3D Viewport. _**Yes we are planning to make this into a fully shipped add-on, so don't worry!**_ 
+- [x] (_**Yes we are planning to make this into a fully shipped add-on, so don't worry!**_) It's here! Just get the [latest release](https://github.com/VKG5/F1-Track-Gen/releases/tag/v1.1.0) and install it like any other Blender add-on!
+- How to install a Blender add-on? What's better than the Blender documentary to [learn](https://docs.blender.org/manual/en/latest/editors/preferences/addons.html) this! 
 
-<br> 
-<!-- Adding an image -->
+<!-- Might need this later on
+<br>
+Adding an image
 <p align="center">
    <img src="/Images/menuBar.png" width="512" title="hover text"> 
     <img src="/Images/runScript.png" width="512" title="hover text"> 
-</p>
+</p> 
 <br>
+-->
 
 Just switch back to the Layout workspace after this and you're good to go! You can find the details about the functionality in the above [section](https://github.com/VKG5/F1-Track-Gen/edit/main/README.md#current-features-).
 
