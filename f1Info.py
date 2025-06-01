@@ -32,11 +32,13 @@ def checkLibraries():
 
 
 ## GLOBAL VARIABLES
-# PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
-
-## Use os.getcwd() instead of os.path.realpath for debugging
+## Use os.getcwd() instead of os.path.realpath for importing as module in Blender
 # Using the latter will give the path as the Blender files location
-PARENT_DIR = os.getcwd()
+
+PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
+# PARENT_DIR = os.getcwd()
+
+PARENT_DIR += "\\FastF1"
 CACHE_DIR = "\\FF1_Cache"
 
 
@@ -191,12 +193,12 @@ def saveData(df : pd.DataFrame, track : str, year : int) -> str:
             'LAP_DISTANCE': data[0],
             'WORLDPOSX': data[1],
             'WORLDPOSY': data[2],
-            'WORLDPOSZ': 0 # TODO : Add Z coordinate normalization
+            'WORLDPOSZ': data[3] # TODO : Add Z coordinate normalization
         })
 
     if(not os.path.exists(f"{PARENT_DIR}\\Data")):
-        print("Data directory does NOT exist")
-        return ''
+        print("Data directory does NOT exist... Creating directory...")
+        os.makedirs(f"{PARENT_DIR}\\Data")
 
     with open(f"{PARENT_DIR}\\Data\\{track}_{year}_data.json", 'w', encoding='utf-8') as file:
         json.dump(save_data, file, indent=4)
@@ -204,16 +206,3 @@ def saveData(df : pd.DataFrame, track : str, year : int) -> str:
     print(f"JSON data saved to {track}_{year}_data.json")
 
     return f"{PARENT_DIR}\\Data\\{track}_{year}_data.json"
-
-YEAR = 2024
-DISTANCE_INTERVAL = 10
-TRACK = 'Melbourne'
-
-# checkLibraries()
-
-# track_points = getAllTrackPoints(2024, 5, 'Melbourne')
-
-# if(track_points is not None):
-#     print(f"Successfully fetched data for {YEAR}, {TRACK}")
-
-# saveData(track_points, TRACK, YEAR)

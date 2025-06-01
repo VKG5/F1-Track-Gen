@@ -2,15 +2,14 @@ import bpy
 import os
 from mathutils import Vector
 
-# from . import importData as getData
-getData = bpy.data.texts["importData.py"].as_module()
+from . import importData as getData
+# getData = bpy.data.texts["importData.py"].as_module()
 
 # Getting the directory name for importing the track files
 dir = os.path.dirname(os.path.realpath(__file__))
 
 # assign the point coordinates to the spline points
 def generatePoints(sector, cData, crv, spline):
-    
     for p, new_co in zip(spline.points, cData):
         if(new_co[3] == sector):              
             posX = new_co[0]
@@ -18,31 +17,31 @@ def generatePoints(sector, cData, crv, spline):
             posZ = new_co[2]    
             p.co = ([posX, posY, posZ] + [1.0]) # (add nurbs weight)
 
-def generateCurve(val, apiName):
-    cData = getData.processData(apiName)
+def generateCurve(_params):
+    cData = getData.processData(_params)
 
     print("\nDirectory: %s\n" % dir)
     
-    # make a new curve
-    # crv = bpy.data.curves.new('crv', 'CURVE')
-    # crv.dimensions = '3D'
+    # Make a new curve
+    crv = bpy.data.curves.new('crv', 'CURVE')
+    crv.dimensions = '3D'
 
-    # # make a new spline in that curve
-    # spline = crv.splines.new(type='NURBS')
+    # Make a new spline in that curve
+    spline = crv.splines.new(type='NURBS')
 
-    # # a spline point for each point
-    # spline.points.add(len(cData)-1) # theres already one point by default
+    # a spline point for each point
+    spline.points.add(len(cData)-1) # theres already one point by default
     
-    # startSect = 1
-    # stopSect = val
+    startSect = 1
+    stopSect = _params['sectors']
     
-    # # Generating the points on the curve
-    # for sector in range(startSect - 1, stopSect):
-    #     generatePoints(sector, cData, crv, spline)
+    # Generating the points on the curve
+    for sector in range(startSect - 1, stopSect):
+        generatePoints(sector, cData, crv, spline)
         
-    # # make a new object with the curve
-    # obj = bpy.data.objects.new('trackCurve', crv)
-    # bpy.context.collection.objects.link(obj)
+    # Make a new object with the curve
+    obj = bpy.data.objects.new('trackCurve', crv)
+    bpy.context.collection.objects.link(obj)
     
     ## Debugging
     print("Curve successfully generated!")
@@ -87,14 +86,17 @@ def addFitTrack(trackName):
     print("Successfully generated the Track!!")
     
 # Function for placing mesh along the curve generated above
-def generateTrack(val, trackName, apiName):
+def generateTrack(_params):
     # Will generate the curve with the name of "trackCurve"
-    generateCurve(val, apiName)
+    ## Params is a dictionary with keys 'sectors', 'track', and 'year'
+    # Sectors is the number of sectors to generate
+    # Track is the name of the track
+    # Year is the year of the race on the particular track
+    generateCurve(_params)
     
     # Importing the track(s)
-    # importTrack()
+    importTrack()
     
-    # activeTrack = trackName
     # Adding the track/object and fitting it onto the curve
-    # addFitTrack(activeTrack)
+    addFitTrack(_params['track'])
     

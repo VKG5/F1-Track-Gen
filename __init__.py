@@ -22,21 +22,15 @@ from . import generateFillers as genFillers
 # Format : ("Name", The bpy.property relevant to the field - Int, String, Float, etc.)
 PROPS = [
     ('sectors', bpy.props.IntProperty(name='Sectors', default=1, min=1, max=3)),
-    ('apiName', bpy.props.EnumProperty(
-                                name='API Type',
-                                description = 'Selection a track preset',
+    ('race_track', bpy.props.EnumProperty(
+                                name='Track',
+                                description = 'Select a track',
                                 items = [
                                     ('api001', 'Melbourne', ''),
                                     ('api002', 'Texas', ''),
                                     ('api003', 'Sakhir (Baharain)', '')
                                 ] ) ),
-    ('trackNumber', bpy.props.EnumProperty(
-                                name='Track Type',
-                                description = 'Selection a track preset',
-                                items = [
-                                    ('Track001', 'Melbourne', ''),
-                                    ('Track002', 'Texas', '')
-                                ] ) ),
+    ('race_year', bpy.props.IntProperty(name='Year', default=2024, min=2000, max=2024)),
     ('poleOffset', bpy.props.FloatProperty(name='Pole Distance')),
     ('flagOffset', bpy.props.FloatProperty(name='Flag Distance')),
     ('poleOffsetTrack', bpy.props.FloatProperty(name='Pole Offset')),
@@ -54,7 +48,9 @@ def selectOptions(params, context):
     #print("Types of the parameters : %s, %s" % (type(params[0]), type(params[1])))
     
     # Calling the generate track function from the generateTrack script
-    genTrack.generateTrack(params, context.scene.trackNumber, context.scene.apiName)
+    genTrack.generateTrack({"sectors" : params, 
+                            "track" : context.scene.race_track, 
+                            "year" : context.scene.race_year})
     
     ## Debugging
     #print(type(bpy.context.scene.trackNumber))
