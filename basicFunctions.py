@@ -13,7 +13,7 @@ import os
 
 
 # Getting path
-dir = os.getcwd()
+dir = os.path.dirname(os.path.realpath(__file__))
 
 
 ''' 

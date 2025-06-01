@@ -1,45 +1,37 @@
 import bpy
 from math import radians
 import os
-# To pull the dataset off of the web (We don't require any keys or anything atm)
-import requests
+import pandas as pd
+import numpy as np
 
 # Getting path
-dir = os.getcwd()
+dir = os.path.dirname(os.path.realpath(__file__))
 
 # A reference to the basic functions that are present in the other script
-from . import basicFunctions as basicFuncs
 
-# Global Dictionary for storing the API Links
-# The value is stored in form of a Tuple with 3 links
-# (LeftData, RightData, CenterData)
-# API001 - Melbourne
-# API002 - Texas
-# API003 - Sakhir
-apiLinks = { 'api001' : ("14723197675720646148", "3447308828675135472", "6424586751601551341"),
-             'api002' : ("12739104041678494733", "12959366596380051521", "9742647087467354271"),
-             'api003' : ("9065767181428164173", "3370806962101808516", "14198929888436051103") }
+# from . import basicFunctions as basicFuncs
+basicFuncs = bpy.data.texts["basicFunctions.py"].as_module()
 
+# from . import f1Info as f1Info
+f1Info = bpy.data.texts["f1Info.py"].as_module()
              
 ''' 
 Importing and Core Data Functions
 '''
-## The apiName is linked to the UI and we have a pre-defined dictionary for getting the data based on the API chosen
-# Currently Melbourne, Texas and Sakhir (Baharain)
 def importData(apiName):
     # Clearing all pre-initialized data
     basicFuncs.deleteAll()
 
-    # Setting up the path for the data
-    dataPath = "https://apigw.withoracle.cloud/formulaai/trackData/"
+    # TODO : Import data using FastF1 and adjust for current code
+    data = f1Info.getAllTrackPoints(2024, 10, 'Melbourne')
+    f1Info.saveData(data, 'Melbourne', 2024)
 
     # Loading the actual data
     ## Left Track Data
-    leftData = (requests.get(dataPath + apiLinks[apiName][0] + "/1")).json()
-    rightData = (requests.get(dataPath + apiLinks[apiName][1] + "/1")).json()
-    centerData = (requests.get(dataPath + apiLinks[apiName][2] + "/1")).json()
+    # TODO : Read the saved json from the cache
+    centerData = []
 
-    return leftData, rightData, centerData
+    return centerData
 
 # Just to avoid redundant for loops in the subsequent function
 def insertDataIntoList(ls, js):
@@ -58,8 +50,8 @@ def insertDataIntoList(ls, js):
         
     return ls
     
-def getData(apiName):
-    leftData, rightData, centerData = importData(apiName)
+def getData(apiName) -> list:
+    centerData = importData(apiName)
     
     '''
     We are primarily focused on a few entries from the data points, which are 
@@ -71,20 +63,12 @@ def getData(apiName):
     '''
     
     # Defining the data structures for storing the data frame
-    lData = []
-    rData = []
     cData = []
-    
-    # Generating the dataframe for Left Side
-    lData = insertDataIntoList(lData, leftData)
-    
-    # Generating the dataframe for Right Side
-    rData = insertDataIntoList(rData, rightData)
     
     # Generating the dataframe for Center Side
     cData = insertDataIntoList(cData, centerData)
     
-    return lData, rData, cData
+    return cData
 
 # Function to sort Data based on certain parameters (Sector/Frame)
 def sortData(ls):
@@ -93,9 +77,19 @@ def sortData(ls):
     
     return( sorted( ls, key = lambda ls: (ls[3], ls[4]) ) )
 
-def processData(apiName):
+def processData(apiName) -> list:
     # Calling the getData() function to get properly generated data
-    lData, rData, cData = getData(apiName)
+    # cData = getData(apiName)
+    TRACK = 'Melbourne'
+    YEAR = 2024
+
+    f1Info.checkLibraries()
+    track_points = f1Info.getAllTrackPoints(2024, 10, 'Melbourne')
+    
+    if(track_points is not None):
+        print(f"Successfully fetched data for {YEAR}, {TRACK}")
+
+    file_path = f1Info.saveData(track_points, TRACK, YEAR)
     
     '''
     Data is stored in the following format:
@@ -112,9 +106,7 @@ def processData(apiName):
     #print("L\nR\nC : %s\n%s\n%s" % (lData, rData, cData))
     
     # Sorting the data
-    lData = sortData(lData)
-    rData = sortData(rData)
-    cData = sortData(cData)
+    # cData = sortData(cData)
     
     '''
     The datasets are inconsistent
@@ -130,5 +122,6 @@ def processData(apiName):
     #print("L, R, bpy.context : %s, %s, %s" % (lData[0], rData[0], cData[0]))
 
     print("Data import and pre-processing done!")
+    print("File saved at: %s" % file_path)
     
-    return lData, rData, cData
+    return []

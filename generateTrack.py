@@ -2,7 +2,8 @@ import bpy
 import os
 from mathutils import Vector
 
-from . import importData as getData
+# from . import importData as getData
+getData = bpy.data.texts["importData.py"].as_module()
 
 # Getting the directory name for importing the track files
 dir = os.path.dirname(os.path.realpath(__file__))
@@ -18,30 +19,30 @@ def generatePoints(sector, cData, crv, spline):
             p.co = ([posX, posY, posZ] + [1.0]) # (add nurbs weight)
 
 def generateCurve(val, apiName):
-    lData, rData, cData = getData.processData(apiName)
+    cData = getData.processData(apiName)
 
     print("\nDirectory: %s\n" % dir)
     
     # make a new curve
-    crv = bpy.data.curves.new('crv', 'CURVE')
-    crv.dimensions = '3D'
+    # crv = bpy.data.curves.new('crv', 'CURVE')
+    # crv.dimensions = '3D'
 
-    # make a new spline in that curve
-    spline = crv.splines.new(type='NURBS')
+    # # make a new spline in that curve
+    # spline = crv.splines.new(type='NURBS')
 
-    # a spline point for each point
-    spline.points.add(len(cData)-1) # theres already one point by default
+    # # a spline point for each point
+    # spline.points.add(len(cData)-1) # theres already one point by default
     
-    startSect = 1
-    stopSect = val
+    # startSect = 1
+    # stopSect = val
     
-    # Generating the points on the curve
-    for sector in range(startSect - 1, stopSect):
-        generatePoints(sector, cData, crv, spline)
+    # # Generating the points on the curve
+    # for sector in range(startSect - 1, stopSect):
+    #     generatePoints(sector, cData, crv, spline)
         
-    # make a new object with the curve
-    obj = bpy.data.objects.new('trackCurve', crv)
-    bpy.context.collection.objects.link(obj)
+    # # make a new object with the curve
+    # obj = bpy.data.objects.new('trackCurve', crv)
+    # bpy.context.collection.objects.link(obj)
     
     ## Debugging
     print("Curve successfully generated!")
@@ -91,9 +92,9 @@ def generateTrack(val, trackName, apiName):
     generateCurve(val, apiName)
     
     # Importing the track(s)
-    importTrack()
+    # importTrack()
     
-    activeTrack = trackName
+    # activeTrack = trackName
     # Adding the track/object and fitting it onto the curve
-    addFitTrack(activeTrack)
+    # addFitTrack(activeTrack)
     
