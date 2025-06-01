@@ -98,5 +98,5 @@ def generateTrack(_params):
     importTrack()
     
     # Adding the track/object and fitting it onto the curve
-    addFitTrack(_params['track'])
+    addFitTrack(_params['track_type'])
     

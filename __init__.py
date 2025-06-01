@@ -22,13 +22,20 @@ from . import generateFillers as genFillers
 # Format : ("Name", The bpy.property relevant to the field - Int, String, Float, etc.)
 PROPS = [
     ('sectors', bpy.props.IntProperty(name='Sectors', default=1, min=1, max=3)),
+    ('track_type', bpy.props.EnumProperty(
+                                name='Track Type',
+                                description = 'Select a track preset',
+                                items = [
+                                    ('Track001', 'Track 01', ''),
+                                    ('Track002', 'Track 02', '')
+                                ] ) ),
     ('race_track', bpy.props.EnumProperty(
                                 name='Track',
                                 description = 'Select a track',
                                 items = [
-                                    ('api001', 'Melbourne', ''),
-                                    ('api002', 'Texas', ''),
-                                    ('api003', 'Sakhir (Baharain)', '')
+                                    ('Melbourne', 'Melbourne', ''),
+                                    ('Texas', 'Texas', ''),
+                                    ('Sakhir', 'Sakhir (Baharain)', '')
                                 ] ) ),
     ('race_year', bpy.props.IntProperty(name='Year', default=2024, min=2000, max=2024)),
     ('poleOffset', bpy.props.FloatProperty(name='Pole Distance')),
@@ -50,7 +57,8 @@ def selectOptions(params, context):
     # Calling the generate track function from the generateTrack script
     genTrack.generateTrack({"sectors" : params, 
                             "track" : context.scene.race_track, 
-                            "year" : context.scene.race_year})
+                            "year" : context.scene.race_year,
+                            "track_type" : context.scene.track_type})
     
     ## Debugging
     #print(type(bpy.context.scene.trackNumber))
